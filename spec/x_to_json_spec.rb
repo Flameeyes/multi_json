@@ -18,8 +18,8 @@ describe "MultiJson" do
     end
 
     it 'should be settable via a symbol' do
-      MultiJson.engine = :yajl
-      MultiJson.engine.name.should == 'MultiJson::Engines::Yajl'
+      MultiJson.engine = :json_pure
+      MultiJson.engine.name.should == 'MultiJson::Engines::JsonPure'
     end
     
     it 'should be settable via a class' do
