@@ -13,8 +13,12 @@ end
 describe "MultiJson" do
   context 'engines' do
     it 'should default to the best available gem' do
-      require 'yajl'
-      MultiJson.engine.name.should == 'MultiJson::Engines::Yajl'
+      begin
+        require 'yajl'
+        MultiJson.engine.name.should == 'MultiJson::Engines::Yajl'
+      rescue LoadError
+        pending "YAJL (or a dependency) not available."
+      end
     end
 
     it 'should be settable via a symbol' do
